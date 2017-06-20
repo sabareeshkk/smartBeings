@@ -3,7 +3,8 @@ const app = express();
 
 //Import the mongoose module
 const mongoose = require('mongoose');
-
+//routers
+const locationUrl = require('./router');
 //Set up default mongoose connection
 const mongoDB = 'mongodb://127.0.0.1/smartBeings';
 mongoose.connect(mongoDB);
@@ -14,8 +15,6 @@ console.log(db);
 //Bind connection to error event (to get notification of connection errors)
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-
-const locationUrl = require('./router');
 
 //enable cors
 app.use(function(req, res, next) {
